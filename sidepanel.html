@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    :root { 
+      --bg-dark: #0f1215; 
+      --card-dark: #1c1f24; 
+      --accent: #00ff88; 
+      --text-main: #e0e6ed;
+      --text-dim: #94a3b8;
+    }
+    body { 
+      font-family: 'Inter', -apple-system, sans-serif; 
+      padding: 20px; background: var(--bg-dark); color: var(--text-main);
+      height: 100vh; display: flex; flex-direction: column; margin: 0; box-sizing: border-box;
+    }
+    .card {
+      background: var(--card-dark); border-radius: 16px; padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #2d333b; margin-bottom: 20px;
+    }
+    h3 { margin: 0 0 20px 0; font-size: 18px; letter-spacing: 1px; text-align: center; color: var(--accent); }
+    
+    button { 
+      width: 100%; padding: 16px; background: var(--accent); color: #000; 
+      border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 15px;
+      text-transform: uppercase; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    button:hover { filter: brightness(1.2); transform: scale(1.02); }
+    button#stopBtn { background: #ff4757; color: white; margin-top: 10px; display: none; }
+    
+    .setting-item { display: flex; align-items: center; margin-top: 15px; font-size: 13px; color: var(--text-dim); }
+    input[type="checkbox"] { accent-color: var(--accent); margin-right: 10px; width: 16px; height: 16px; }
+
+    #status { margin: 15px 0; font-size: 12px; color: var(--accent); font-family: monospace; }
+    
+    #result-container { 
+      flex-grow: 1; overflow-y: auto; background: rgba(255,255,255,0.03); 
+      border: 1px solid #2d333b; padding: 15px; border-radius: 12px;
+    }
+    #result { font-size: 14px; line-height: 1.6; color: var(--text-main); word-break: break-all; white-space: pre-wrap; }
+    .label { font-size: 10px; color: var(--text-dim); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>CORE SYSTEM V3</h3>
+    <button id="startBtn">开启全自动答题</button>
+    <button id="stopBtn">停止任务</button>
+    
+    <div class="setting-item">
+      <input type="checkbox" id="autoLoop" checked>
+      <label for="autoLoop">自动循环下一题 (直到交卷)</label>
+    </div>
+    <div id="status">SYSTEM READY...</div>
+  </div>
+
+  <div id="result-container">
+    <div class="label">AI PROCESSOR LOG</div>
+    <div id="result">Waiting for signal...</div>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AI 答题助手极速版",
+  "version": "2.1",
+  "permissions": ["sidePanel", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "点击打开助手"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
